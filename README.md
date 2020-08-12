@@ -2,8 +2,8 @@
 
 ## Важные ссылки
 
-* [Описание платформы робота, порядка доступа команд к нему](https://docs.google.com/document/d/1wRQyuIwhhfYffbE6CxJ1mTlKcZbFuP9l5_G1zhkKjcg)
-* [Официальные регламенты соревнований](https://www.russianrobotics.ru/competition/competition/autonet/autonet-18/)
+* [Описание платформы робота, порядка доступа команд к роботу](https://docs.google.com/document/d/1wRQyuIwhhfYffbE6CxJ1mTlKcZbFuP9l5_G1zhkKjcg)
+* [Официальный регламент соревнований](https://www.russianrobotics.ru/competition/competition/autonet/autonet-18/)
 
 ## Скрипты для установки решения
 * install.sh - прописываются символические ссылки из папки проекта в папку с исхдоными кодами решений ROS (обычно catkin_ws)
@@ -14,6 +14,8 @@
 ```bash
 rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[1.0, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
 ```
+
+Телеуправление роботом можно осуществить с использованием библиотеки [teleop_twist_keyboard](https://github.com/ros-teleop/teleop_twist_keyboard).
 
 Для запуска перемещения робота используется топик 'cmd_vel'. Сообщения передаются в формате [Twist](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/Twist.html), имеющим два свойства linear и angular с типом [Vector3](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/Vector3.html), соответствующие линейной и угловой скорости. 
 
