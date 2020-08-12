@@ -31,7 +31,7 @@ class Camera:
 
     def resize_image(self, name):
         img = self.get_image(name)
-        scale_percent = 20
+        scale_percent = int(rospy.get_param("~image_scale"))
         width = int(img.shape[1] * scale_percent / 100)
         height = int(img.shape[0] * scale_percent / 100)
         dim = (width, height)

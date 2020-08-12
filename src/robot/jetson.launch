@@ -9,6 +9,7 @@
 	    <param name='cam_top_id' value='2' />
 	    <param name='cam_bottom_id' value='1' />
 	    <param name='fps' value='5' />
+	    <param name='image_scale' value='40' />
 	</node>
 	<node name='move_node' pkg="robot" type="move_node.py" output="screen" >
         <param name="motor_serial_port" value="/dev/ttyACM1"/>
