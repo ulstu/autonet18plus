@@ -1,0 +1,13 @@
+sudo chmod 777 /dev/ttyACM0
+sudo chmod 777 /dev/ttyACM1
+sudo chmod 777 /dev/i2c-1
+
+cv_bridge error description: https://www.programmersought.com/article/4908420840/
+
+
+catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/python3.6/config-3.6m-aarch64-linux-gnu/libpython3.6m.so
+catkin config --install
+
+
+rostopic pub -1 /cmd_vel geometry_msgs/Twist -- '[1.0, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+
