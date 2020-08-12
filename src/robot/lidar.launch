@@ -1,4 +1,0 @@
-<launch>
-	<node name='hokuyo' pkg="hokuyo_node" type="hokuyo_node" output="screen" >
-	</node>	
-</launch>
