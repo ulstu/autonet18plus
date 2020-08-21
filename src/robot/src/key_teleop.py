@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+#inspired by https://github.com/ros-teleop/teleop_tools
+
 import curses
 import math
 

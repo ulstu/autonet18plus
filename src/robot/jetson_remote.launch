@@ -26,5 +26,4 @@
         <param name="angle_min" value="-1.5707963"/>
         <param name="angle_max" value="1.5707963"/>
     </node>
-<!--    <node name="rviz" pkg="rviz" type="rviz" respawn="false" output="screen" /> -->
 </launch>

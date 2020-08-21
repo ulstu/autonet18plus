@@ -1,8 +1,8 @@
 <launch>
 	<node name='key_teleop' pkg="robot" type="key_teleop.py" output="screen" >
-	    <param name='hz' value='5' />
-	    <param name='forward_rate' value='0.5' />
-	    <param name='backward_rate' value='0.3' />
+	    <param name='hz' value='10' />
+	    <param name='forward_rate' value='0.8' />
+	    <param name='backward_rate' value='0.5' />
 	    <param name='rotation_rate' value='0.7' />
 	    <param name='turbo/steps' value='4' />
 	</node>

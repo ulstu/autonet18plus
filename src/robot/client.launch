@@ -1,0 +1,5 @@
+<launch>
+	<param name="/use_sim_time" value="true" />
+	<node name='client_node' pkg="robot" type="client.py" output="screen" >
+	</node>
+</launch>
