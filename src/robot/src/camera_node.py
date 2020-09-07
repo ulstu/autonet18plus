@@ -6,6 +6,7 @@ import cv2
 from sensor_msgs.msg import Image
 from std_msgs.msg import String
 from cv_bridge import CvBridge, CvBridgeError
+import sys
 
 class Camera:
     is_started = False
@@ -36,6 +37,7 @@ class Camera:
         height = int(img.shape[0] * scale_percent / 100)
         dim = (width, height)
         resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+        #rospy.loginfo("img {} resized to {} {}".format(name, width, height))
         return self.bridge.cv2_to_imgmsg(resized, "bgr8")
 
 
@@ -45,8 +47,10 @@ class Camera:
                 try:
                    self.pub_top.publish(self.resize_image('top'))
                    self.pub_bottom.publish(self.resize_image('bottom'))
-                except CvBridgeError as e:
-                    rospy.error(e)
+                except:
+                    rospy.loginfo("Error {}".format(sys.exc_info()))                
+                #except CvBridgeError as e:
+                #    rospy.loginfo(e)
             rospy.sleep(1 / int(rospy.get_param("~fps")))
     
     def callback(self, data):
