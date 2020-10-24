@@ -1,11 +1,13 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 
 import rospy
 import cv2
 from sensor_msgs.msg import Image
-from std_msgs.msg import String
+from cv_bridge.boost.cv_bridge_boost import getCvType
 from cv_bridge import CvBridge, CvBridgeError
+from std_msgs.msg import String
 import sys
 
 class Camera:
@@ -43,12 +45,12 @@ class Camera:
 
     def run(self):
         while not rospy.is_shutdown():
-            if self.is_started:
-                try:
-                   self.pub_top.publish(self.resize_image('top'))
-                   self.pub_bottom.publish(self.resize_image('bottom'))
-                except:
-                    rospy.loginfo("Error {}".format(sys.exc_info()))                
+            #if self.is_started:
+            try:
+               self.pub_top.publish(self.resize_image('top'))
+               self.pub_bottom.publish(self.resize_image('bottom'))
+            except:
+                rospy.loginfo("Error {}".format(sys.exc_info()))                
                 #except CvBridgeError as e:
                 #    rospy.loginfo(e)
             rospy.sleep(1 / int(rospy.get_param("~fps")))

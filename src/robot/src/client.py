@@ -11,6 +11,7 @@ import cv2
 import math
 from cv_bridge import CvBridge, CvBridgeError
 import datetime
+import time
 
 
 class ClientController:
@@ -62,15 +63,20 @@ class ClientController:
         while not rospy.is_shutdown():
             try:
                 if self.can_move:
-                    self.move(0.7, 1, 0.6)
-                    self.move(-0.7, -1, 0.6)
-                    self.move(0.7, 0, 0.6)
-                    self.move(-0.7, 0, 0.6)
-                    self.move(0.7, 1, 0.6)
-                    self.move(-0.7, -1, 0.6)
-                    self.move(0.7, 0, 0.6)
-                    self.move(-0.7, 0, 0.6)
-                    
+                    self.move(0.7, 0, 1.8)
+                    #self.move(0.7, 0, 1.2)
+                    #self.move(0.7, 0, 0.4)
+                    #self.move(0.7, 0, 1.0)
+                    #self.move(0.7, 0, 1.2)
+                    time.sleep(3)
+                    self.move(0.7, 0, 0.8)
+                    self.move(0.7, -1, 1.6)
+                    #self.move(0.7, 0, 1.2)
+                    self.move(0.7, 0, 1.0)
+                    #self.move(0.7, 0, 1.2)
+                    #self.move(0.7, 0, 1.0)
+                    #self.move(0.7, 1, 1.2)
+
                     self.can_move = False
             except:
                 rospy.loginfo("Error {}".format(sys.exc_info()))

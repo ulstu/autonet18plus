@@ -1,0 +1,7 @@
+<launch>
+	<!-- remember to perform chmod 777 for all python files -->
+	<node name='camera_reader_node' pkg="robot" type="cam_reader.py" output="screen" >
+	</node>
+
+
+</launch>
