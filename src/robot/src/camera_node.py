@@ -44,16 +44,19 @@ class Camera:
 
 
     def run(self):
+        r = rospy.Rate(int(rospy.get_param("~fps")))
         while not rospy.is_shutdown():
             #if self.is_started:
             try:
                self.pub_top.publish(self.resize_image('top'))
                self.pub_bottom.publish(self.resize_image('bottom'))
+               rospy.loginfo("top and bottom images published")
             except:
-                rospy.loginfo("Error {}".format(sys.exc_info()))                
+                rospy.loginfo("Error during image publish {}".format(sys.exc_info()))                
                 #except CvBridgeError as e:
                 #    rospy.loginfo(e)
-            rospy.sleep(1 / int(rospy.get_param("~fps")))
+            #rospy.sleep(1 / int(rospy.get_param("~fps")))
+            r.sleep()
     
     def callback(self, data):
         data = data.data

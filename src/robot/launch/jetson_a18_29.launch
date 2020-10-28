@@ -1,0 +1,28 @@
+<launch>
+	<!-- remember to perform chmod 777 for all python files -->
+	<node name='button_node' pkg="robot" type="button_node.py" output="screen" >
+	    <param name="green_button_pin" value="37" />
+	    <param name="red_button_pin" value="31" />
+	    <param name="start_delay" value="5" />
+	</node>
+	<node name='camera_node' pkg="robot" type="camera_node.py" output="screen" >
+	    <param name='cam_top_id' value='1' />
+	    <param name='cam_bottom_id' value='2' />
+	    <param name='fps' value='3' />
+	    <param name='image_scale' value='100' />
+	</node>
+	<node name='move_node' pkg="robot" type="move_node.py" output="screen" >
+        <param name="motor_serial_port" value="/dev/ttyACM1"/>
+	</node>
+    <node name="urg_node" pkg="urg_node" type="urg_node" output="screen">
+        <param name="ip_address" value=""/>
+        <param name="serial_port" value="/dev/ttyACM0"/>
+        <param name="serial_baud" value="115200"/>
+        <param name="frame_id" value="laser_link"/>
+        <param name="calibrate_time" value="false"/>
+        <param name="publish_intensity" value="false"/>
+        <param name="publish_multiecho" value="false"/>
+        <param name="angle_min" value="-2.09238797"/>
+        <param name="angle_max" value="2.09238797"/>
+    </node>
+</launch>
